@@ -1,7 +1,7 @@
 {
   "name": "to-do",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "https://cqin9326-blip.github.io/to-do",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
