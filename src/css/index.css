@@ -1,7 +1,210 @@
 @charset "utf-8";
 @import './reset.css';
 
+body {
+    background-color: rgb(240 242 255);
+    color: rgb(30 32 50);
+}
 
+main {
+    min-height: 100svh;
+    padding: 60px 0 80px;
+}
+
+.container {
+    width: min(100% - 30px, 1080px);
+    margin-inline: auto;
+}
+
+
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 32px;
+    color: rgb(30 32 50);
+    letter-spacing: -0.5px;
+}
+
+.task-form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.task-input {
+    height: 40px;
+    width: 320px;
+    padding: 0 14px;
+    border-radius: 6px;
+    border: 1px solid rgb(200 205 230);
+    background-color: #fff;
+    color: rgb(30 32 50);
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.task-input:focus {
+    border-color: rgb(124 77 255);
+    outline: none;
+}
+
+.task-input::placeholder {
+    color: rgb(160 165 190);
+}
+
+.btn-add {
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 6px;
+    background-color: rgb(124 77 255);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-add:hover {
+    background-color: rgb(100 55 230);
+}
+
+.empty-state {
+    text-align: center;
+    color: rgb(140 145 170);
+    font-size: 16px;
+    margin-top: 60px;
+}
+
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.task-item {
+    display: flex;
+    align-items: stretch;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.08);
+    overflow: hidden;
+    transition: box-shadow 0.2s, opacity 0.2s;
+    min-height: 70px;
+}
+
+.task-item:hover {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.12);
+}
+
+.task-item--completed {
+    opacity: 0.75;
+}
+
+.task-strip {
+    width: 4px;
+    flex-shrink: 0;
+    background-color: rgb(124 77 255);
+    border-radius: 8px 0 0 8px;
+}
+
+.task-strip--done {
+    background-color: rgb(52 199 89);
+}
+
+.task-body {
+    flex: 1;
+    padding: 12px 10px 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.task-text {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(30 32 50);
+}
+
+.task-text--done {
+    text-decoration: line-through;
+    color: rgb(140 145 170);
+}
+
+.task-date {
+    font-size: 12px;
+    color: rgb(160 165 190);
+}
+
+.task-edit-input {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(30 32 50);
+    border: none;
+    border-bottom: 1px solid rgb(124 77 255);
+    background: transparent;
+    width: 100%;
+    padding: 2px 0;
+}
+
+.task-edit-input:focus {
+    outline: none;
+}
+
+.task-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px 10px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 4px;
+    display: grid;
+    place-items: center;
+}
+
+.icon-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.icon-btn--complete {
+    color: rgb(160 165 190);
+}
+
+.icon-btn--complete:hover {
+    color: rgb(52 199 89);
+    background-color: rgb(52 199 89 / 0.1);
+}
+
+.icon-btn--edit {
+    color: rgb(160 165 190);
+}
+
+.icon-btn--edit:hover {
+    color: rgb(124 77 255);
+    background-color: rgb(124 77 255 / 0.1);
+}
+
+.icon-btn--delete {
+    color: rgb(160 165 190);
+}
+
+.icon-btn--delete:hover {
+    color: rgb(255 69 58);
+    background-color: rgb(255 69 58 / 0.1);
+}
 
 
 
