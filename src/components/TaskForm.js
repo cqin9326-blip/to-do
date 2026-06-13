@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-// TaskForm lets the user type and submit a new task
+
 function TaskForm({ onAdd }) {
     const [inputValue, setInputValue] = useState('');
 
