@@ -48,3 +48,63 @@ function taskReducer(state, action) {
     }
 }
 
+
+
+function App() {
+    const [tasks, dispatch] = useReducer(taskReducer, [], loadTasks);
+    const [editingId, setEditingId] = useState(null);
+    const [editText, setEditText] = useState('');
+
+
+    useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }, [tasks]);
+
+    const handleAdd = text => {
+        const trimmed = text.trim();
+        if (!trimmed) return;
+        dispatch({ type: 'ADD_TASK', payload: trimmed });
+    };
+
+    const handleEdit = task => {
+        setEditingId(task.id);
+        setEditText(task.text);
+    };
+
+    const handleUpdate = () => {
+        const trimmed = editText.trim();
+        if (!trimmed) return;
+        dispatch({ type: 'UPDATE_TASK', payload: { id: editingId, text: trimmed } });
+        setEditingId(null);
+        setEditText('');
+    };
+
+    const handleDelete = id => {
+        dispatch({ type: 'DELETE_TASK', payload: id });
+    };
+
+    const handleComplete = id => {
+        dispatch({ type: 'COMPLETE_TASK', payload: id });
+    };
+
+    return (
+        <main>
+            <div className='container'>
+                <h1>Task Tracker</h1>
+                <TaskForm onAdd={handleAdd} />
+                <TaskList
+                    tasks={tasks}
+                    editingId={editingId}
+                    editText={editText}
+                    onEditTextChange={setEditText}
+                    onEdit={handleEdit}
+                    onUpdate={handleUpdate}
+                    onDelete={handleDelete}
+                    onComplete={handleComplete}
+                />
+            </div>
+        </main>
+    );
+}
+
+export default App;

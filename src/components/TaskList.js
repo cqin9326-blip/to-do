@@ -3,7 +3,7 @@ import TaskItem from './TaskItem';
 
 function TaskList({ tasks, editingId, editText, onEditTextChange, onEdit, onUpdate, onDelete, onComplete }) {
     if (tasks.length === 0) {
-        return <p className='empty-state'>No tasks yet. Add one above!</p>;
+        return <p className='empty-state'>No any tasks yetm plz add one!</p>;
     }
 
     return (
